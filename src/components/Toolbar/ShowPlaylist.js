@@ -1,11 +1,11 @@
 import React from 'react';
 import StyledSwitch from './Switch.style'
 
-const NightMode = ({nightModeToggle, nightMode})=>(
+const NightMode = ({showPlaylist, showPlaylistToggle})=>(
 	<StyledSwitch>
-		<span>NightMode</span>
+		<span>ShowPlaylist</span>
 		<label className="switch">
-			<input type="checkbox" checked={nightMode} onChange={nightModeToggle}/>
+			<input type="checkbox" checked={showPlaylist} onChange={showPlaylistToggle}/>
 			<span className="slider round"/>
 		</label>
 	</StyledSwitch>

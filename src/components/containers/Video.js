@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import Toolbar from '../Toolbar'
 import {StyledVideo, StyledVideoWrapper}  from './Video.style'
 
-const Video = ({autoplay, active, endCallback, nightModeCallback, nightMode, progressCallback})=>(
+const Video = ({autoplay, active, endCallback, nightModeToggle, nightMode, progressCallback, showPlaylist, showPlaylistToggle})=>(
 	<StyledVideo>
 		<StyledVideoWrapper>
 			<ReactPlayer
@@ -16,8 +16,10 @@ const Video = ({autoplay, active, endCallback, nightModeCallback, nightMode, pro
 			/>
 		</StyledVideoWrapper>
 		<Toolbar
-			nightModeCallback={nightModeCallback}
+			nightModeToggle={nightModeToggle}
 			nightMode={nightMode}
+			showPlaylist={showPlaylist}
+			showPlaylistToggle={showPlaylistToggle}
 		/>
 	</StyledVideo>
 )

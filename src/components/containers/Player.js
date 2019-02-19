@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {ThemeProvider} from 'styled-components'
+import SmoothCollapse from 'react-smooth-collapse'
+
 import Video from './Video'
 import Playlist from '../Playlist'
 import logo from './logo.svg';
@@ -28,11 +30,12 @@ const themeLight={
 const Player = props =>{
 	const savedState = JSON.parse(localStorage.getItem(`${videosList.playlistId}`))
 	const [state, setState] = useState({
-		videos:savedState ? savedState.videos: videosList.playlist,
 		activeVideo:savedState ? savedState.activeVideo :videosList.playlist[0],
+		autoplay:savedState ? savedState.autoplay :false,
 		nightMode:savedState ? savedState.nightMode :true,
 		playlistId:savedState ? savedState.playlistId :videosList.playlistId,
-		autoplay:savedState ? savedState.autoplay :false
+		showPlaylist:savedState ? savedState.showPlaylist :true,
+		videos:savedState ? savedState.videos: videosList.playlist
 	})
 
 	useEffect(()=>{
@@ -60,8 +63,12 @@ const Player = props =>{
 		[props.match.params.activeVideo]
 	)
 
-	const nightModeCallback=()=>{
+	const nightModeToggle=()=>{
 		setState({...state, nightMode: !state.nightMode})
+	}
+
+	const showPlaylistToggle=()=>{
+		setState({...state, showPlaylist: !state.showPlaylist})
 	}
 
 	const endCallback=()=>{
@@ -106,16 +113,20 @@ const Player = props =>{
 						<Video
 							active={state.activeVideo}
 							autoplay={state.autoplay}
-														endCallback={endCallback}
-							nightModeCallback={nightModeCallback}
+							endCallback={endCallback}
+							nightModeToggle={nightModeToggle}
 							nightMode={state.nightMode}
 							progressCallback={progressCallback}
+							showPlaylist={state.showPlaylist}
+							showPlaylistToggle={showPlaylistToggle}
 						/>
-						<Playlist 
-							videos={state.videos}
-							active={state.activeVideo}
-							nightMode={state.nightMode}
-						/>
+						<SmoothCollapse expanded={state.showPlaylist} heightTransition="0.618s ease-out">
+							<Playlist 
+								videos={state.videos}
+								active={state.activeVideo}
+								nightMode={state.nightMode}
+							/>
+						</SmoothCollapse>
 					</StyledPlayer>
 				</>
 			):null}

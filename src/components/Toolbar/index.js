@@ -1,10 +1,12 @@
 import React from 'react'
 import NightMode from './NightMode'
+import ShowPlaylist from './ShowPlaylist'
 import StyledToolbar from './index.style'
 
-const Toolbar = ({nightModeCallback, nightMode})=>(
+const Toolbar = ({nightModeToggle, nightMode, showPlaylist, showPlaylistToggle})=>(
   <StyledToolbar id="video-toolbar">
-    <NightMode nightModeCallback={nightModeCallback} nightMode={nightMode}/>
+    <NightMode nightModeToggle={nightModeToggle} nightMode={nightMode} />
+    <ShowPlaylist showPlaylistToggle={showPlaylistToggle} showPlaylist={showPlaylist} />
   </StyledToolbar>
 )
 

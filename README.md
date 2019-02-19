@@ -39,7 +39,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Changelog
 
  * v0.2.0
-   * Wrapped the Nightmode switch into `<Toolbar>` ([tomByrer]())
+   * Wrapped the Nightmode switch into `<Toolbar>` ([tomByrer](https://github.com/tomByrer))
+ * v0.3.0
+   * Added ShowPlaylist switch to hide / show the video listing
 
 ## `Thanks & references`
 

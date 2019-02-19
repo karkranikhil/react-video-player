@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
-const StyledNightMode = styled.div`
+const StyledSwitch = styled.div`
+  display: inline-block;
   font-family: "Hind", sans-serif;
   font-weight: 800;
   font-size: 1.6em;
@@ -73,4 +74,4 @@ const StyledNightMode = styled.div`
   }
 `
 
-export default StyledNightMode
+export default StyledSwitch

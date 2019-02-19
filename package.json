@@ -1,6 +1,6 @@
 {
   "name": "react-tube",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "react": "^16.8.2",
@@ -8,6 +8,7 @@
     "react-player": "^1.9.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-smooth-collapse": "^2.0.0",
     "styled-components": "^4.1.3"
   },
   "scripts": {
